@@ -5,6 +5,7 @@
 
 void print_grid();
 void handle_inputs(char choice);
+void xo();
 
 int main() {
 
@@ -12,16 +13,18 @@ int main() {
 
     printf("     === Tic-Tac-Toe ===\n\n");
     printf(" Pick who plays first: ");
-    scanf("%c", &choice);
+  //  scanf("%c", &choice);
 
-    printf("\n\n");
+    printf("\n");
+
+    xo();
     print_grid();
 
     handle_inputs(choice);
 
-
     return 0;
 }
+
 void print_grid() {
 
     char grid[21][42];
@@ -42,7 +45,6 @@ void print_grid() {
         }
     }
 
-    
     for(int i = 0; i < 21; i++){
         for(int j = 0; j < 42; j++){
            printf("%c", grid[i][j]);
@@ -60,43 +62,101 @@ void handle_inputs(char choice) {
 
     while(game) {
 
-
         printf("Enter Square: ");
         scanf("%d", &placement);
 
        switch (placement) {
     case 11:
+
         break;
 
     case 12:
+
         break;
 
     case 13:
+
         break;
 
     case 21:
+
         break;
 
     case 22:
+
         break;
 
     case 23:
+
         break;
 
     case 31:
+
         break;
 
     case 32:
+
         break;
 
     case 33:
+
         break;
 
     default:
+    
         break;
+    
+
+
+         }
+       }
+
 }
 
+void xo(){
 
+    char X[6][6] = {{'\\',' ',' ',' ',' ','/'},
+                    {' ','\\',' ',' ','/',' '},
+                    {' ',' ','\\','/',' ',' '},
+                    {' ',' ','/','\\',' ',' '},
+                    {' ','/',' ',' ','\\',' '},
+                    {'/',' ',' ',' ',' ','\\'}};  
+
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 6; j++){
+           printf("%c", X[i][j]);
+        }
+        printf("\n");
     }
+    printf("\n");
 
+    char O[6][6] = {{' ',' ','/','\\',' ',' '},
+                    {' ','/',' ',' ','\\',' '},
+                    {'|',' ',' ',' ',' ','|'},
+                    {'|',' ',' ',' ',' ','|'},
+                    {' ','\\',' ',' ','/',' '},
+                    {' ',' ','\\','/',' ',' '},};
+
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 6; j++){
+           printf("%c", O[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    
+       char O1[6][6] = {  {' ',' ','_','_',' ',' '},
+                          {' ','/',' ',' ','\\',' '},
+                          {'|',' ',' ',' ',' ','|'},
+                          {'|',' ',' ',' ',' ','|'},
+                          {' ','\\','_','_','/',' '},
+                          {' ',' ',' ',' ',' ',' '},};
+
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 6; j++){
+           printf("%c", O1[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
 }
