@@ -2,38 +2,48 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#include <ctype.h>
+#include <string.h>
 
-void print_grid();
-void handle_inputs(char choice);
+
+void make_grid(char grid[21][42]);
+void handle_inputs(char CHOICE, char grid[21][42]);
 void xo();
 
 int main() {
 
-    char choice;
+    char choice, CHOICE;
+    char grid[21][42];
+
 
     printf("     === Tic-Tac-Toe ===\n\n");
     printf(" Pick who plays first: ");
-  //  scanf("%c", &choice);
-
+    scanf("%c", &choice);
+    CHOICE = tolower(choice);
+  
+        while(CHOICE != 'x' && CHOICE != 'o') {
+            printf(" \n[ERROR] Invalid input. Try again!\n");
+            printf(" Pick who plays first: ");
+            scanf(" %c", &choice);
+            CHOICE = tolower(choice);
+        }
     printf("\n");
 
-    xo();
-    print_grid();
-
-    handle_inputs(choice);
+  
+    make_grid(grid);
+    handle_inputs(CHOICE,grid);
 
     return 0;
 }
 
-void print_grid() {
+void make_grid(char grid[21][42]) {
 
-    char grid[21][42];
     for (int i = 0; i < 21; i++) {
       for (int j = 0; j < 42; j++) {
         grid[i][j] = ' ';
     }
+   
 }
-
     for(int i = 1; i < 21; i++){
         for(int j = 1; j < 42; j++){
             if (i % 7 == 0){
@@ -45,6 +55,35 @@ void print_grid() {
         }
     }
 
+   
+}
+
+void handle_inputs(char CHOICE, char grid[21][42]) {
+
+    bool board[3][3] = {
+    { true, true, true },
+    { true, true, true },
+    { true, true, true }
+    };
+
+    char X[4][4] = {{'\\',' ',' ','/',},
+                    {' ','\\','/',' ',},
+                    {' ','/','\\',' ',},
+                    {'/',' ',' ','\\',}};
+
+    char O[5][6] = {{' ',' ','_','_',' ',' '},
+                    {' ','/',' ',' ','\\',' '},
+                    {'|',' ',' ',' ',' ','|'},
+                    {'|',' ',' ',' ',' ','|'},
+                    {' ','\\','_','_','/',' '}};
+
+
+    bool game = true;
+    int placement;
+
+
+    while(game) {
+        
     for(int i = 0; i < 21; i++){
         for(int j = 0; j < 42; j++){
            printf("%c", grid[i][j]);
@@ -52,53 +91,207 @@ void print_grid() {
         printf("\n");
     }
     printf("\n");
-}
 
-void handle_inputs(char choice) {
-
-    bool game = true;
-    int placement;
-
-
-    while(game) {
 
         printf("Enter Square: ");
         scanf("%d", &placement);
 
-       switch (placement) {
+
+ switch (placement) {
     case 11:
 
+    if(board[0][0]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 3][j + 5] = X[i][j];
+            }
+        }
+        board[0][0] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 2][j + 4] = O[i][j];
+            }
+        }
+        board[0][0] = false;
+    }
+}
         break;
 
     case 12:
+
+    if(board[0][1]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 3][j + 20] = X[i][j];
+            }
+        }
+        board[0][1] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 2][j + 19] = O[i][j];
+            }
+        }
+        board[0][1] = false;
+    }
+}
 
         break;
 
     case 13:
 
+    if(board[0][2]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 3][j + 34] = X[i][j];
+            }
+        }
+        board[0][2] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 2][j + 33] = O[i][j];
+            }
+        }
+        board[0][2] = false;
+    }
+}
+
         break;
 
     case 21:
+
+    if(board[1][0]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 9][j + 5] = X[i][j];
+            }
+        }
+        board[1][0] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 9][j + 4] = O[i][j];
+            }
+        }
+        board[1][0] = false;
+    }
+}
 
         break;
 
     case 22:
 
+    if(board[1][1]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 9][j + 20] = X[i][j];
+            }
+        }
+        board[1][1] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 9][j + 19] = O[i][j];
+            }
+        }
+        board[1][1] = false;
+    }
+}
+
         break;
 
     case 23:
+
+    if(board[1][2]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 9][j + 34] = X[i][j];
+            }
+        }
+        board[1][2] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 9][j + 33] = O[i][j];
+            }
+        }
+        board[1][2] = false;
+    }
+}
 
         break;
 
     case 31:
 
+    if(board[2][0]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 16][j + 5] = X[i][j];
+            }
+        }
+        board[2][0] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 15][j + 4] = O[i][j];
+            }
+        }
+        board[2][0] = false;
+    }
+}
+
         break;
 
     case 32:
 
+    if(board[2][1]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 16][j + 20] = X[i][j];
+            }
+        }
+        board[2][1] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 15][j + 19] = O[i][j];
+            }
+        }
+        board[2][1] = false;
+    }
+}
+
         break;
 
     case 33:
+
+    if(board[2][2]) {
+    if (CHOICE == 'x'){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                grid[i + 16][j + 34] = X[i][j];
+            }
+        }
+        board[2][2] = false;
+    }else{
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            grid[i + 15][j + 33] = O[i][j];
+            }
+        }
+        board[2][2] = false;
+    }
+}
 
         break;
 
@@ -115,7 +308,7 @@ void handle_inputs(char choice) {
 
 void xo(){
 
-    char X[6][6] = {{'\\',' ',' ',' ',' ','/'},
+  /*  char X[6][6] = {{'\\',' ',' ',' ',' ','/'},
                     {' ','\\',' ',' ','/',' '},
                     {' ',' ','\\','/',' ',' '},
                     {' ',' ','/','\\',' ',' '},
@@ -129,8 +322,12 @@ void xo(){
         printf("\n");
     }
     printf("\n");
+    */
+    
+ 
+                    
 
-    char O[6][6] = {{' ',' ','/','\\',' ',' '},
+  /*  char O[6][6] = {{' ',' ','/','\\',' ',' '},
                     {' ','/',' ',' ','\\',' '},
                     {'|',' ',' ',' ',' ','|'},
                     {'|',' ',' ',' ',' ','|'},
@@ -143,20 +340,7 @@ void xo(){
         }
         printf("\n");
     }
-    printf("\n");
-    
-       char O1[6][6] = {  {' ',' ','_','_',' ',' '},
-                          {' ','/',' ',' ','\\',' '},
-                          {'|',' ',' ',' ',' ','|'},
-                          {'|',' ',' ',' ',' ','|'},
-                          {' ','\\','_','_','/',' '},
-                          {' ',' ',' ',' ',' ',' '},};
+    printf("\n"); */
 
-    for(int i = 0; i < 6; i++){
-        for(int j = 0; j < 6; j++){
-           printf("%c", O1[i][j]);
-        }
-        printf("\n");
-    }
-    printf("\n");
+
 }
