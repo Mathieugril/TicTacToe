@@ -78,6 +78,8 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
                     {' ','\\','_','_','/',' '}};
 
 
+
+
     bool game = true;
     int placement;
 
@@ -107,6 +109,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
                 grid[i + 3][j + 5] = X[i][j];
             }
         }
+        CHOICE = 'o';
         board[0][0] = false;
     }else{
     for(int i = 0; i < 5; i++){
@@ -115,6 +118,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[0][0] = false;
+        CHOICE = 'x';
     }
 }
         break;
@@ -129,6 +133,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[0][1] = false;
+        CHOICE = 'o';
     }else{
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
@@ -136,6 +141,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[0][1] = false;
+        CHOICE = 'x';
     }
 }
 
@@ -151,6 +157,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[0][2] = false;
+        CHOICE = 'o';
     }else{
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
@@ -158,6 +165,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[0][2] = false;
+        CHOICE = 'x';
     }
 }
 
@@ -173,6 +181,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[1][0] = false;
+        CHOICE = 'o';
     }else{
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
@@ -180,6 +189,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[1][0] = false;
+        CHOICE = 'x';
     }
 }
 
@@ -195,6 +205,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[1][1] = false;
+        CHOICE = 'o';
     }else{
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
@@ -202,6 +213,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[1][1] = false;
+        CHOICE = 'x';
     }
 }
 
@@ -217,6 +229,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[1][2] = false;
+        CHOICE = 'o';
     }else{
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
@@ -224,6 +237,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[1][2] = false;
+        CHOICE = 'x';
     }
 }
 
@@ -239,6 +253,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[2][0] = false;
+        CHOICE = 'o';
     }else{
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
@@ -246,6 +261,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[2][0] = false;
+        CHOICE = 'x';
     }
 }
 
@@ -261,6 +277,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[2][1] = false;
+        CHOICE = 'o';
     }else{
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
@@ -268,6 +285,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[2][1] = false;
+        CHOICE = 'x';
     }
 }
 
@@ -283,6 +301,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[2][2] = false;
+        CHOICE = 'o';
     }else{
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
@@ -290,6 +309,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
             }
         }
         board[2][2] = false;
+        CHOICE = 'x';
     }
 }
 
@@ -298,9 +318,6 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
     default:
     
         break;
-    
-
-
          }
        }
 
