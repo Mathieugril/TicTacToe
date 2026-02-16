@@ -15,7 +15,6 @@ int main() {
     char choice, CHOICE;
     char grid[21][42];
 
-
     printf("     === Tic-Tac-Toe ===\n\n");
     printf(" Pick who plays first: ");
     scanf("%c", &choice);
@@ -29,7 +28,6 @@ int main() {
         }
     printf("\n");
 
-  
     make_grid(grid);
     handle_inputs(CHOICE,grid);
 
@@ -53,18 +51,22 @@ void make_grid(char grid[21][42]) {
                 grid[i][j] = '|';
             }
         }
-    }
+    }   
 
-   
+    grid[0][7] = '1';
+    grid[0][21] = '2';
+    grid[0][35] = '3';
+
+    grid[4][0] = '1';
+    grid[11][0] = '2';
+    grid[18][0] = '3';
 }
 
 void handle_inputs(char CHOICE, char grid[21][42]) {
 
-    bool board[3][3] = {
-    { true, true, true },
-    { true, true, true },
-    { true, true, true }
-    };
+    bool board[3][3] = {{ true, true, true },
+                        { true, true, true },
+                        { true, true, true }};
 
     char X[4][4] = {{'\\',' ',' ','/',},
                     {' ','\\','/',' ',},
@@ -76,9 +78,6 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
                     {'|',' ',' ',' ',' ','|'},
                     {'|',' ',' ',' ',' ','|'},
                     {' ','\\','_','_','/',' '}};
-
-
-
 
     bool game = true;
     int placement;
@@ -121,7 +120,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
         CHOICE = 'x';
     }
 }
-        break;
+    break;
 
     case 12:
 
@@ -144,8 +143,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
         CHOICE = 'x';
     }
 }
-
-        break;
+    break;
 
     case 13:
 
@@ -168,8 +166,7 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
         CHOICE = 'x';
     }
 }
-
-        break;
+    break;
 
     case 21:
 
@@ -192,7 +189,6 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
         CHOICE = 'x';
     }
 }
-
         break;
 
     case 22:
@@ -216,7 +212,6 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
         CHOICE = 'x';
     }
 }
-
         break;
 
     case 23:
@@ -240,7 +235,6 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
         CHOICE = 'x';
     }
 }
-
         break;
 
     case 31:
@@ -264,7 +258,6 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
         CHOICE = 'x';
     }
 }
-
         break;
 
     case 32:
@@ -312,52 +305,11 @@ void handle_inputs(char CHOICE, char grid[21][42]) {
         CHOICE = 'x';
     }
 }
-
         break;
 
     default:
-    
+    printf("ERROR INVALID");
         break;
          }
        }
-
-}
-
-void xo(){
-
-  /*  char X[6][6] = {{'\\',' ',' ',' ',' ','/'},
-                    {' ','\\',' ',' ','/',' '},
-                    {' ',' ','\\','/',' ',' '},
-                    {' ',' ','/','\\',' ',' '},
-                    {' ','/',' ',' ','\\',' '},
-                    {'/',' ',' ',' ',' ','\\'}};  
-
-    for(int i = 0; i < 6; i++){
-        for(int j = 0; j < 6; j++){
-           printf("%c", X[i][j]);
-        }
-        printf("\n");
-    }
-    printf("\n");
-    */
-    
- 
-                    
-
-  /*  char O[6][6] = {{' ',' ','/','\\',' ',' '},
-                    {' ','/',' ',' ','\\',' '},
-                    {'|',' ',' ',' ',' ','|'},
-                    {'|',' ',' ',' ',' ','|'},
-                    {' ','\\',' ',' ','/',' '},
-                    {' ',' ','\\','/',' ',' '},};
-
-    for(int i = 0; i < 6; i++){
-        for(int j = 0; j < 6; j++){
-           printf("%c", O[i][j]);
-        }
-        printf("\n");
-    }
-    printf("\n"); */
-
-
 }
